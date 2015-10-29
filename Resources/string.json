@@ -1,0 +1,124 @@
+{
+    "CHINESE":
+    {
+        "__font__":"fz",
+        "__#0#__":"#############菜單字符串###########",
+
+        "battle_tap_to_invade":"开始攻占",
+        "battle_its_blocked_minmap":"无效地域",
+
+        "new_game_process_m0":"搜索地下城入口...",
+        "new_game_process_m1":"发现地下城...",
+        "new_game_process_m2":"修复地形...",
+        "new_game_process_m3":"复活死去的怪物...",
+        "new_game_process_m4":"补给矿物堆...",
+        "new_game_process_m5":"注入基础资源...",
+        "new_game_process_m6":"建造核心...",
+        "new_game_process_m7":"欢迎新领主...",
+
+        "map_welcome_to_core_m0":"欢迎来到核心",
+        "map_welcome_to_core_m1":"坚守核心",
+        "map_welcome_to_core_m2":"这里是老家",
+
+
+        "map_many_mine_m0":"探测到很多矿物",
+        "map_many_mine_m1":"闻到了矿石的味道",
+        "map_many_mine_m2":"矿石，石矿，很多矿石",
+
+        "map_volcano_m0":"这里有硫磺的味道，careful！",
+        "map_volcano_m1":"远处那红色的是什么？",
+        "map_volcano_m2":"是火山，小心！",
+
+
+        "map_many_enemy_m0":"好像很危险",
+        "map_many_enemy_m1":"发现很多敌人！",
+        "map_many_enemy_m2":"怪物有一个团的兵力！！快逃！",
+
+        "msg_core_attack":"怪物正在攻击您的核心!",
+        "msg_core_die":"核！心！毁！灭！",
+        "msg_new_activable":"新发现一座地下城！",
+        "msg_active_dungeon":"新的战斗开始了！",
+        "msg_new_occupy":"太棒了，您占领了一座新的地下城！",
+        "msg_friend_die":"警告，有一座建筑被摧毁！",
+        "msg_mine_gone":"一座矿被开采完毕。",
+
+
+        "go_drive_out":"核心被摧毁，敌人将您驱逐出了地下城。",
+        "go_rest_enough":"大人是否休息够了？",
+        "go_return_invade":"返回地下城",
+        "go_result_start":"这次攻略结果:",
+        "go_mine":"攫取了%d矿石",
+        "go_kill":"击杀了%d怪物",
+        "go_mine_left":"剩余%d矿石",
+        "go_gas_left":"剩余%d气",
+        "go_result_end":"剩余资源将转入下次攻略!",
+
+
+        "tut_defence_core":"守卫您的核心，消灭你的敌人！",
+
+
+        "prop_title_3rd_mine_m0":"矿",
+        "prop_desc_3rd_mine_m0":"蓝绿色的宝石矿物，是各种建筑的原料。",
+        "prop_title_3rd_stone_m0":"巨石",
+        "prop_desc_3rd_stone_m0":"一块巨大的石头。",
+        "prop_title_3rd_tree_m0":"树",
+        "prop_desc_3rd_tree_m0":"一颗巨大的树。",
+        "prop_title_3rd_volcano_m0":"火山",
+        "prop_desc_3rd_volcano_m0":"不时地喷出滚烫的熔岩！",
+        "prop_title_3rd_water_m0":"池塘",
+        "prop_desc_3rd_water_m0":"不时地输出治疗！",
+
+        "prop_title_enemy_far_m0":"0级远程怪",
+        "prop_desc_enemy_far_m0":"0及远程怪说明",
+
+        "prop_title_enemy_near_m0":"0级近怪",
+        "prop_desc_enemy_near_m0":"0级近怪说明",
+
+        "prop_title_enemy_nest_m0":"母巢",
+        "prop_desc_enemy_nest_m0":"不时地生出大怪兽",
+
+        "prop_title_friend_arrow_tower_m0":"箭塔l0",
+        "prop_desc_friend_arrow_tower_m0":"箭塔l0desc",
+
+        "prop_title_friend_cannon_tower_m0":"雷电塔l0",
+        "prop_desc_friend_cannon_tower_m0":"雷电塔l0说明",
+
+        "prop_title_friend_core_m0":"核心",
+        "prop_desc_friend_core_m0":"核心一旦被毁灭，您将被驱逐出地下城。",
+
+        "prop_title_friend_cure_tower_m0":"初级治疗塔l0",
+        "prop_desc_friend_cure_tower_m0":"治疗心灵",
+
+        "prop_title_friend_light_tower_m0":"初级灯塔l0",
+        "prop_desc_friend_light_tower_m0":"照亮一篇区域，拥有很大的视野。",
+
+        "prop_title_friend_magic_tower_m0":"初级魔法塔",
+        "prop_desc_friend_magic_tower_m0":"可以发动强大的法术攻击",
+
+        "prop_title_friend_miner_m0":"初级挖矿机",
+        "prop_desc_friend_miner_m0":"我会挖矿！",
+
+        "prop_title_friend_wall_m0":"初级城墙",
+        "prop_desc_friend_wall_m0":"防御，非优先攻击目标",
+
+        "et_none":"?",
+        "et_wood":"木",
+        "et_fire":"火",
+        "et_earth":"士",
+        "et_water":"水",
+        "et_metal":"金",
+
+        "sell_friend":"变卖",
+        "remove_3rd":"挖掉",
+
+
+        "__#$#__":"---end---"
+    },
+	"ENGLISH":
+	{
+        "__font__":"Titillium-Light",
+
+
+        "__#$#__":"---end---"
+	}
+}
