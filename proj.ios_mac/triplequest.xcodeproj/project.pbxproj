@@ -64,6 +64,8 @@
 		B5C96FC41BE23DEA00CCCCA2 /* TRBaseScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5C96FC11BE23DEA00CCCCA2 /* TRBaseScene.cpp */; };
 		B5C96FC81BE23E0D00CCCCA2 /* GameTestScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5C96FC61BE23E0D00CCCCA2 /* GameTestScene.cpp */; };
 		B5C96FCA1BE23FC300CCCCA2 /* images in Resources */ = {isa = PBXBuildFile; fileRef = B5C96FC91BE23FC300CCCCA2 /* images */; };
+		B5C96FCE1BE241BE00CCCCA2 /* TripleDef.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5C96FCC1BE241BE00CCCCA2 /* TripleDef.cpp */; };
+		B5C96FD11BE2598A00CCCCA2 /* format.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5C96FCF1BE2598A00CCCCA2 /* format.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -163,6 +165,10 @@
 		B5C96FC61BE23E0D00CCCCA2 /* GameTestScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameTestScene.cpp; sourceTree = "<group>"; };
 		B5C96FC71BE23E0D00CCCCA2 /* GameTestScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameTestScene.h; sourceTree = "<group>"; };
 		B5C96FC91BE23FC300CCCCA2 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
+		B5C96FCC1BE241BE00CCCCA2 /* TripleDef.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TripleDef.cpp; sourceTree = "<group>"; };
+		B5C96FCD1BE241BE00CCCCA2 /* TripleDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripleDef.h; sourceTree = "<group>"; };
+		B5C96FCF1BE2598A00CCCCA2 /* format.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = format.cpp; sourceTree = "<group>"; };
+		B5C96FD01BE2598A00CCCCA2 /* format.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = format.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -362,6 +368,8 @@
 		B5C96FBE1BE23DB400CCCCA2 /* triple */ = {
 			isa = PBXGroup;
 			children = (
+				B5C96FCC1BE241BE00CCCCA2 /* TripleDef.cpp */,
+				B5C96FCD1BE241BE00CCCCA2 /* TripleDef.h */,
 				B5C96FC61BE23E0D00CCCCA2 /* GameTestScene.cpp */,
 				B5C96FC71BE23E0D00CCCCA2 /* GameTestScene.h */,
 			);
@@ -371,6 +379,8 @@
 		B5C96FC51BE23DF100CCCCA2 /* fromold */ = {
 			isa = PBXGroup;
 			children = (
+				B5C96FCF1BE2598A00CCCCA2 /* format.cpp */,
+				B5C96FD01BE2598A00CCCCA2 /* format.h */,
 				B5C96FBF1BE23DEA00CCCCA2 /* McdLayer.cpp */,
 				B5C96FC01BE23DEA00CCCCA2 /* McdLayer.h */,
 				B5C96FC11BE23DEA00CCCCA2 /* TRBaseScene.cpp */,
@@ -529,10 +539,12 @@
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				B5C96FC81BE23E0D00CCCCA2 /* GameTestScene.cpp in Sources */,
+				B5C96FCE1BE241BE00CCCCA2 /* TripleDef.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				B5C96FC41BE23DEA00CCCCA2 /* TRBaseScene.cpp in Sources */,
 				B5C96FC31BE23DEA00CCCCA2 /* McdLayer.cpp in Sources */,
+				B5C96FD11BE2598A00CCCCA2 /* format.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
