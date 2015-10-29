@@ -13,7 +13,7 @@
 #include "cocos2d.h"
 
 constexpr static const int NUM_TRIPLE_WIDTH = 7;
-constexpr static const int NUM_TRIPLE_HEIGHT = 6;
+constexpr static const int NUM_TRIPLE_HEIGHT = 7;
 
 struct TriplePos
 {
@@ -41,11 +41,15 @@ namespace std{
 
 enum class TripleType:int
 {
-    MA = 0, // magic attack
-    PA = 1, // physic attack
-    MD = 2, // magic defence
-    PD = 3, // physic defence
-    BL = 4, // add blood
+
+    PA = 0, // physic attack
+
+    PD = 1, // physic defence
+
+    BL = 2, // add blood
+
+    MA = 3, // magic attack
+    MD = 4, // magic defence
     MAX = 5
 };
 
@@ -58,7 +62,7 @@ constexpr const float TRIPLE_AREA_CENTER_Y = 750.f/2;
 
 inline TripleType genRandomTripleType()
 {
-    return static_cast<TripleType>(cocos2d::random(0, 4));
+    return static_cast<TripleType>(cocos2d::random(0, 2));
 }
 
 inline std::string tripleType2string(TripleType trp)

@@ -13,6 +13,7 @@
 
 #include "TRBaseScene.h"
 #include "TripleDef.h"
+#include "format.h"
 
 
 
@@ -48,6 +49,31 @@ inline TriplePos floatpos2triplepos(cocos2d::Vec2 pos)
     return {x,y};
 }
 
+struct PowerNode
+{
+    TripleType type;
+    int count;
+    cocos2d::Sprite* image = nullptr;
+    cocos2d::Label* label = nullptr;
+
+    void addCount(int newCount) {
+
+        count += newCount;
+        if (label)
+            label->setString(fmt::sprintf("%d", count));
+    }
+
+    void setPosition(cocos2d::Vec2 position) {
+        image->setPosition(position);
+        label->setPosition(position);
+    }
+
+    void clear() {
+        image->getParent()->removeChild(image);
+        label->getParent()->removeChild(label);
+    }
+};
+
 
 
 class GameTestScene:public TRBaseScene
@@ -67,6 +93,24 @@ protected:
     TripleNode genRandomNode();
     void tryRushCubes(cocos2d::Vec2 cursor); // 尝试消除
     void tripleSelect(TriplePos pos, TripleType type);
+
+    std::deque<PowerNode> _enemyPowerQueue;
+    std::deque<PowerNode> _friendPowerQueue;
+
+    int _enemyBlood;
+    int _friendBlood;
+    cocos2d::Label* _lbTurnTime;
+    cocos2d::Label* _lbBloodEnemy;
+    cocos2d::Label* _lbBloodFriend;
+
+    void powerTick();
+    constexpr static const float turnTime = 3;
+    float _turnTimeLeft;
+
+    void update(float dt) override;
+    void newFriend();
+    void newEnemy();
+    void pushEnemyPower();
 };
 
 #endif /* GameTestScene_hpp */
