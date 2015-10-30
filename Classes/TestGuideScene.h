@@ -5,8 +5,6 @@
 
 #include "cocos2d.h"
 #include "TRBaseScene.h"
-#include "TurnScene.h"
-#include "Maxmap.h"
 
 class TestGuideScene:public TRBaseScene
 {

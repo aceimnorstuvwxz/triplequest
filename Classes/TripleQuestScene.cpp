@@ -1,18 +1,13 @@
-//
-//  GameTestScene.cpp
-//  triplequest
-//
-//  Created by chenbingfeng on 15/10/29.
-//
-//
+// (C) 2015 Arisecbf
 
-#include "GameTestScene.h"
+
+#include "TripleQuestScene.h"
 #include "format.h"
 
 USING_NS_CC;
 
 
-bool GameTestScene::init()
+bool TripleQuestScene::init()
 {
     assert(TRBaseScene::init());
 
@@ -51,7 +46,7 @@ bool GameTestScene::init()
 }
 
 
-TripleNode GameTestScene::genRandomNode()
+TripleNode TripleQuestScene::genRandomNode()
 {
     TripleNode node;
     node.type = genRandomTripleType();
@@ -67,7 +62,7 @@ void TripleNode::setPosition(cocos2d::Vec2 pos, bool isMoveOrOccure)
     image->setPosition(pos);
 }
 
-void GameTestScene::initTripleField()
+void TripleQuestScene::initTripleField()
 {
     for (int x = 0; x < NUM_TRIPLE_WIDTH; x++) {
         for (int y = 0; y < NUM_TRIPLE_HEIGHT; y++) {
@@ -109,7 +104,7 @@ void TripleNode::clear()
     image->getParent()->removeChild(image);
 }
 
-void GameTestScene::tryRushCubes(cocos2d::Vec2 cursor) // 尝试消除
+void TripleQuestScene::tryRushCubes(cocos2d::Vec2 cursor) // 尝试消除
 {
     // 选中了哪个
     _tripleRunningFlag.clear();
@@ -149,7 +144,7 @@ void GameTestScene::tryRushCubes(cocos2d::Vec2 cursor) // 尝试消除
     }
 }
 
-void GameTestScene::tripleSelect(TriplePos pos, TripleType type)
+void TripleQuestScene::tripleSelect(TriplePos pos, TripleType type)
 {
     if (_tripleNodeMap.count(pos) > 0  && _tripleRunningFlag.count(pos) == 0 && _tripleNodeMap[pos].type == type) {
         _tripleRunningFlag[pos] = true;
@@ -163,7 +158,7 @@ void GameTestScene::tripleSelect(TriplePos pos, TripleType type)
 }
 
 
-void GameTestScene::update(float dt)
+void TripleQuestScene::update(float dt)
 {
     _lbBloodEnemy->setString(fmt::sprintf("%d", _enemyBlood));
     _lbBloodFriend->setString(fmt::sprintf("%d", _friendBlood));
@@ -187,7 +182,7 @@ void GameTestScene::update(float dt)
     _lbTurnTime->setString(fmt::sprintf("%.1f", _turnTimeLeft));
 }
 
-void GameTestScene::newFriend()
+void TripleQuestScene::newFriend()
 {
     _friendBlood = 30;
     for (auto p : _friendPowerQueue) {
@@ -196,7 +191,7 @@ void GameTestScene::newFriend()
     _friendPowerQueue.clear();
 }
 
-void GameTestScene::newEnemy()
+void TripleQuestScene::newEnemy()
 {
     _enemyBlood = 30;
     for (auto p : _enemyPowerQueue) {
@@ -210,7 +205,7 @@ void GameTestScene::newEnemy()
 }
 
 
-void GameTestScene::pushEnemyPower()
+void TripleQuestScene::pushEnemyPower()
 {
     PowerNode power;
     power.count = random(1, 5);
@@ -223,7 +218,7 @@ void GameTestScene::pushEnemyPower()
     _enemyPowerQueue.push_back(power);
 }
 
-void GameTestScene::powerTick()
+void TripleQuestScene::powerTick()
 {
 
     auto enemyPower = _enemyPowerQueue.front();

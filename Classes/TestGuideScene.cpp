@@ -1,11 +1,9 @@
 // (C) 2015 Turnro.com
 
 #include "TestGuideScene.h"
-#include "TurnScene.h"
-#include "WelcoSceneSec.h"
-#include "GlassDemoScene.h"
-#include "PostureEditScene.h"
-#include "MenuScene.h"
+#include "TripleQuestScene.h"
+#include "BeatQuestScene.h"
+
 USING_NS_CC;
 
 bool TestGuideScene::init()
@@ -13,16 +11,15 @@ bool TestGuideScene::init()
     assert(TRBaseScene::init());
 
 
-    addCommonBtn({0.5,0.8}, "glass test", [](){
-           Director::getInstance()->pushScene(GlassDemoScene::create());
-    });
-    addCommonBtn({0.5,0.7}, "posture edit", [](){
-           Director::getInstance()->pushScene(PostureEditScene::create());
+    addCommonBtn({0.5,0.9}, "Triple Quest", [](){
+           Director::getInstance()->pushScene(TripleQuestScene::create());
     });
 
-    addCommonBtn({0.5,0.3}, "Welco", [](){
-        Director::getInstance()->pushScene(WelcoSceneSec::create());
+
+    addCommonBtn({0.5,0.8}, "Beat Quest", [](){
+        Director::getInstance()->pushScene(BeatQuestScene::create());
     });
+
 
     return true;
 }

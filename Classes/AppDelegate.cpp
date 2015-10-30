@@ -1,5 +1,5 @@
 #include "AppDelegate.h"
-#include "GameTestScene.h"
+#include "TestGuideScene.h"
 
 USING_NS_CC;
 
@@ -45,7 +45,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     register_all_packages();
 
 
-    director->runWithScene(GameTestScene::create());
+    director->runWithScene(TestGuideScene::create());
 
     return true;
 }

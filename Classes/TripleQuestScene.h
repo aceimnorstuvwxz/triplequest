@@ -1,13 +1,6 @@
-//
-//  GameTestScene.hpp
-//  triplequest
-//
-//  Created by chenbingfeng on 15/10/29.
-//
-//
-
-#ifndef GameTestScene_hpp
-#define GameTestScene_hpp
+// (C) 2015 Arisecbf
+#ifndef TripleQuestScene_hpp
+#define TripleQuestScene_hpp
 
 #include <stdio.h>
 
@@ -15,6 +8,7 @@
 #include "TripleDef.h"
 #include "format.h"
 
+// Triple quest 测试scene
 
 
 struct TripleNode
@@ -76,10 +70,10 @@ struct PowerNode
 
 
 
-class GameTestScene:public TRBaseScene
+class TripleQuestScene:public TRBaseScene
 {
 public:
-    CREATE_FUNC(GameTestScene);
+    CREATE_FUNC(TripleQuestScene);
     virtual bool init() override;
 
 
@@ -113,4 +107,4 @@ protected:
     void pushEnemyPower();
 };
 
-#endif /* GameTestScene_hpp */
+#endif /* TripleQuestScene_hpp */
