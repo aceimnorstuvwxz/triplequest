@@ -63,6 +63,7 @@
 		B56414D51BE3555A005FDFB4 /* SOCommon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B56414D31BE3555A005FDFB4 /* SOCommon.cpp */; };
 		B56414D81BE356B5005FDFB4 /* TestGuideScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B56414D61BE356B5005FDFB4 /* TestGuideScene.cpp */; };
 		B56414DC1BE35785005FDFB4 /* BeatQuestScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B56414DA1BE35785005FDFB4 /* BeatQuestScene.cpp */; };
+		B56414DF1BE359FD005FDFB4 /* BeatDef.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B56414DD1BE359FD005FDFB4 /* BeatDef.cpp */; };
 		B5C96FC31BE23DEA00CCCCA2 /* McdLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5C96FBF1BE23DEA00CCCCA2 /* McdLayer.cpp */; };
 		B5C96FC41BE23DEA00CCCCA2 /* TRBaseScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5C96FC11BE23DEA00CCCCA2 /* TRBaseScene.cpp */; };
 		B5C96FC81BE23E0D00CCCCA2 /* TripleQuestScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5C96FC61BE23E0D00CCCCA2 /* TripleQuestScene.cpp */; };
@@ -167,6 +168,8 @@
 		B56414D71BE356B5005FDFB4 /* TestGuideScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestGuideScene.h; sourceTree = "<group>"; };
 		B56414DA1BE35785005FDFB4 /* BeatQuestScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BeatQuestScene.cpp; sourceTree = "<group>"; };
 		B56414DB1BE35785005FDFB4 /* BeatQuestScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeatQuestScene.h; sourceTree = "<group>"; };
+		B56414DD1BE359FD005FDFB4 /* BeatDef.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BeatDef.cpp; sourceTree = "<group>"; };
+		B56414DE1BE359FD005FDFB4 /* BeatDef.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BeatDef.hpp; sourceTree = "<group>"; };
 		B5C96FBF1BE23DEA00CCCCA2 /* McdLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = McdLayer.cpp; sourceTree = "<group>"; };
 		B5C96FC01BE23DEA00CCCCA2 /* McdLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = McdLayer.h; sourceTree = "<group>"; };
 		B5C96FC11BE23DEA00CCCCA2 /* TRBaseScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TRBaseScene.cpp; sourceTree = "<group>"; };
@@ -380,6 +383,8 @@
 		B56414D91BE35745005FDFB4 /* beat-quest */ = {
 			isa = PBXGroup;
 			children = (
+				B56414DD1BE359FD005FDFB4 /* BeatDef.cpp */,
+				B56414DE1BE359FD005FDFB4 /* BeatDef.hpp */,
 				B56414DA1BE35785005FDFB4 /* BeatQuestScene.cpp */,
 				B56414DB1BE35785005FDFB4 /* BeatQuestScene.h */,
 			);
@@ -560,6 +565,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				B56414DF1BE359FD005FDFB4 /* BeatDef.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				B56414D51BE3555A005FDFB4 /* SOCommon.cpp in Sources */,
 				B5C96FC81BE23E0D00CCCCA2 /* TripleQuestScene.cpp in Sources */,

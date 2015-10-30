@@ -20,6 +20,5 @@ bool TestGuideScene::init()
         Director::getInstance()->pushScene(BeatQuestScene::create());
     });
 
-
     return true;
 }
