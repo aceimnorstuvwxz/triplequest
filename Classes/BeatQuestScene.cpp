@@ -34,13 +34,13 @@ bool BeatQuestScene::init()
 
 
     _lbEnemyInfo = Label::createWithTTF("", "fonts/pixel.ttf", 120);
-    _lbEnemyInfo->setPosition(genPos({0.5, 0.7}));
+    _lbEnemyInfo->setPosition(genPos({0.5, 0.9}));
     _lbEnemyInfo->setTextColor(Color4B::RED);
     _defaultLayer->addChild(_lbEnemyInfo);
 
 
     _lbFriendInfo = Label::createWithTTF("", "fonts/pixel.ttf", 120);
-    _lbFriendInfo->setPosition(genPos({0.5, 0.3}));
+    _lbFriendInfo->setPosition(genPos({0.5, 0.1}));
     _lbFriendInfo->setTextColor(Color4B::RED);
     _defaultLayer->addChild(_lbFriendInfo);
 
@@ -81,7 +81,7 @@ void BeatQuestScene::update(float dt)
 
     _nextBeatTimeLeft -= dt;
     if (_nextBeatTimeLeft <= 0) {
-        _nextBeatTimeLeft = random(0.3,1.0);
+        _nextBeatTimeLeft = random(0.1,1.0);
         _runningBeats.push_back(genRandomNode());
     }
 
@@ -96,20 +96,20 @@ BeatNode BeatQuestScene::genRandomNode()
 {
     BeatNode node;
     float ran = rand_0_1();
-    if (ran < 0.6) {
+    if (ran < 0.8) {
         node.type = BeatType::SWORD;
         node.level = 0;
         node.value = 0;
-    } else if (ran < 0.8) {
+    } else if (ran < 0.9) {
         node.type = BeatType::BLOOD;
         node.level = 0;
-        node.value = random(5, 10);
+        node.value = random(1,3);
     } else {
         node.type = BeatType::SHIELD;
         node.level = 0;
         node.value = 0;
     }
-    node.beatSpeed = -random(1.f/0.8f, 1.f/1.2f);
+    node.beatSpeed = -random(1.f/0.8f, 1.f/1.9f);
     node.beatPos = {random(0.1f,0.9f), 1.f};
     node.beatAccerate = 0;
     node.gen(_defaultLayer);
@@ -146,28 +146,32 @@ void BeatQuestScene::checkBeats()
 void BeatQuestScene::initTouchThings()
 {
     static bool touch_moved = false;
-    auto listener = EventListenerTouchOneByOne::create();
+    auto listener = EventListenerTouchAllAtOnce::create(); //EventListenerTouchOneByOne::create();
 
-    listener->onTouchBegan = [this](Touch* touch, Event* event){
-        float touch_start = uniform2real({0,friend_start_line} ).y;
-        float touch_end = uniform2real({0, friend_end_line}).y;
-        Vec2 p = touch->getLocation();
-        touch_moved = false;
-        CCLOG("in");
-        return true;//(p.y > touch_start && p.y < touch_end);
+    listener->onTouchesBegan = [this](const std::vector<Touch*>& touches, Event* event){
+
+        for (auto touch : touches) {
+            float touch_start = uniform2real({0,friend_start_line} ).y;
+            float touch_end = uniform2real({0, friend_end_line}).y;
+            Vec2 p = touch->getLocation();
+            touch_moved = false;
+            CCLOG("in");
+            if(p.y > touch_start && p.y < touch_end) {
+                tryHitBeat(touch->getLocation());
+            }
+            // try hit at touch began
+        }
+
     };
 
-    listener->onTouchMoved = [this](Touch* touch, Event* event){
+    listener->onTouchesMoved = [this](const std::vector<Touch*>& touches, Event* event){
         touch_moved = true;
     };
 
-    listener->onTouchEnded = [this](Touch* touch, Event* event){
-        if (!touch_moved) {
-            tryHitBeat(touch->getLocation());
-        }
+    listener->onTouchesEnded = [this](const std::vector<Touch*>& touches, Event* event){
     };
 
-    listener->onTouchCancelled = [this](Touch* touch, Event* event){
+    listener->onTouchesCancelled = [this](const std::vector<Touch*>& touches, Event* event){
     };
 
     _defaultLayer->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, _defaultLayer);
@@ -195,8 +199,9 @@ void BeatQuestScene::tryHitBeat(cocos2d::Vec2 cursor)
                 iter->clear();
                 iter = _runningBeats.erase(iter);
 
-                continue;
+//                continue;
             }
+            break; // only hit one at one time
         }
         iter++;
     }
@@ -209,11 +214,14 @@ bool BeatQuestScene::dealHitBeat(BeatNode* node)
     switch (node->type) {
         case BeatType::SWORD:
         case BeatType::COMBO:
+        case BeatType::BLOOD:
+        case BeatType::SHIELD:
+
             // 反转
             node->beatSpeed = -node->beatSpeed*1.5;
             shouldDeleta = false;
             break;
-
+/*
         case BeatType::BLOOD:
             _friendBlood += node->value;
             toast(true, fmt::sprintf("BLOOD +%d", node->value));
@@ -226,6 +234,7 @@ bool BeatQuestScene::dealHitBeat(BeatNode* node)
             toast(true, "SHIELD!");
             shouldDeleta = true;
             break;
+ */
 
         default:
             break;
@@ -247,25 +256,31 @@ bool BeatQuestScene::dealFriendHit(BeatNode* node)
         case BeatType::SWORD:
             if (_friendShieldCnt > 0) {
                 _friendShieldCnt--;
-                node->beatSpeed = -node->beatSpeed*1.5;
+                node->beatSpeed = -node->beatSpeed*1.2;
                 shouldDelete = false;
-                toast(true, fmt::sprintf("SHIELD BACK!", _enemyAttack));
+                toast(true, "REFLECT", true);
 
             } else {
                 _friendBlood -= _enemyAttack;
-                toast(true, fmt::sprintf("BLOOD -%d", _enemyAttack));
+                toast(true, fmt::sprintf("-%d", _enemyAttack), false);
                 shouldDelete = true;
                 if (_friendBlood < 0) {
-                    toast(true, "DEAD!!!");
+                    toast(true, "DEAD!!!", false);
                     newFriend();
                 }
             }
             break;
 
         case BeatType::BLOOD:
+            _friendBlood += node->value;
+            toast(true, fmt::sprintf("+%d", node->value), true);
+
+            shouldDelete = true;
+            break;
         case BeatType::SHIELD:
-            node->beatSpeed = -node->beatSpeed*1.5;
-            shouldDelete = false;
+            _friendShieldCnt++;
+            toast(true, "SHIELD", true);
+            shouldDelete = true;
             break;
 
         default:
@@ -284,15 +299,15 @@ bool BeatQuestScene::dealEnemyHit(BeatNode* node)
         case BeatType::SWORD:
             if (_enemyShieldCnt > 0) {
                 _enemyShieldCnt--;
-                node->beatSpeed = -node->beatSpeed*1.5;
+                node->beatSpeed = -node->beatSpeed*1.2;
                 shouldDelete = false;
-                toast(false, fmt::sprintf("SHIELD BACK!", _enemyAttack));
+                toast(false, "REFLECT", true);
             } else {
                 _enemyBlood -= _friendAttack;
-                toast(false, fmt::sprintf("BLOOD -%d", _friendAttack));
+                toast(false, fmt::sprintf("-%d", _friendAttack), false);
                 shouldDelete = true;
                 if (_enemyBlood < 0) {
-                    toast(false, "DEAD!!!");
+                    toast(false, "DEAD!!!", false);
                     newEnemy();
                 }
             }
@@ -301,13 +316,13 @@ bool BeatQuestScene::dealEnemyHit(BeatNode* node)
         case BeatType::BLOOD:
             shouldDelete = true;
             _enemyBlood += node->value;
-            toast(false, fmt::sprintf("BLOOD +%d", node->value));
+            toast(false, fmt::sprintf("+%d", node->value), true);
             break;
 
         case BeatType::SHIELD:
             shouldDelete = true;
             _enemyShieldCnt++;
-            toast(false, "BLOOD ADD!");
+            toast(false, "SHIELD", true);
             break;
 
         default:
@@ -318,10 +333,11 @@ bool BeatQuestScene::dealEnemyHit(BeatNode* node)
 
 
 
-void BeatQuestScene::toast(bool isfriend, std::string text)
+void BeatQuestScene::toast(bool isfriend, std::string text, bool isgood)
 {
     auto lb = isfriend ? _lbFriendInfo : _lbEnemyInfo;
 
+    lb->setTextColor(isgood ? Color4B::GREEN : Color4B::RED);
     lb->setVisible(true);
     lb->setString(text);
     lb->runAction(Sequence::create(ScaleTo::create(0.3, 1.5), ScaleTo::create(0.3, 1.0), Hide::create(), NULL));

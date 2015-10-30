@@ -82,7 +82,7 @@ protected:
     bool dealHitBeat(BeatNode* node);
     bool dealFriendHit(BeatNode* node);
     bool dealEnemyHit(BeatNode* node);
-    void toast(bool isfriend, std::string text);
+    void toast(bool isfriend, std::string text, bool isgood);
 
     void update(float dt) override;
 };
