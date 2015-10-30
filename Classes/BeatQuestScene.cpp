@@ -51,15 +51,51 @@ void BeatQuestScene::newFriend()
     _friendAttack = random(5, 10);
     _friendBlood = 30;
     _friendShieldCnt = 0;
+    _friendComboCnt = 0;
 }
 
 
 void BeatQuestScene::update(float dt)
 {
+    static float _nextBeatTimeLeft = 0.f;
 
     //refresh status
     _lbEnemyStatus->setString(fmt::sprintf("%03d  %03d  %03d", _enemyBlood, _enemyAttack, _enemyShieldCnt));
 
     _lbFriendStatus->setString(fmt::sprintf("%03d  %03d  %03d", _friendBlood, _friendAttack, _friendShieldCnt));
 
+    _nextBeatTimeLeft -= dt;
+    if (_nextBeatTimeLeft <= 0) {
+        _nextBeatTimeLeft = random(0.3,1.0);
+        _runningBeats.push_back(genRandomNode());
+    }
+
+    for (auto& node : _runningBeats) {
+        node.update(dt);
+    }
+}
+
+BeatNode BeatQuestScene::genRandomNode()
+{
+    BeatNode node;
+    float ran = rand_0_1();
+    if (ran < 0.6) {
+        node.type = BeatType::SWORD;
+        node.level = 0;
+        node.value = 0;
+    } else if (ran < 0.8) {
+        node.type = BeatType::BLOOD;
+        node.level = 0;
+        node.value = random(5, 10);
+    } else {
+        node.type = BeatType::SHIELD;
+        node.level = 0;
+        node.value = 0;
+    }
+    node.beatSpeed = -random(1.f/0.8f, 1.f/1.2f);
+    node.beatPos = {rand_0_1(), 1.f};
+    node.beatAccerate = 0;
+    node.gen(_defaultLayer);
+
+    return node;
 }
