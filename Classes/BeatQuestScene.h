@@ -11,6 +11,11 @@
 
 // Beat Quest Gameplay test
 
+inline cocos2d::Vec2 uniform2real(cocos2d::Vec2 beatPos)
+{
+    return soGenPos({beatPos.x, 0.1f+beatPos.y*0.8f});
+}
+
 
 struct BeatNode
 {
@@ -25,7 +30,7 @@ struct BeatNode
     cocos2d::Vec2 beatPos;
     void update(float dt){
         beatPos.y += beatSpeed * dt;
-        image->setPosition(soGenPos({beatPos.x, 0.1f+beatPos.y*0.8f}));
+        image->setPosition(uniform2real(beatPos));
     }
     void gen(cocos2d::Layer* layer) {
         image = cocos2d::Sprite::create(fmt::sprintf("images/beat/icon_%s.png", beattype2string(type)));
@@ -49,6 +54,9 @@ protected:
     cocos2d::Label* _lbEnemyStatus;
     cocos2d::Label* _lbFriendStatus;
 
+    cocos2d::Label* _lbEnemyInfo;
+    cocos2d::Label* _lbFriendInfo;
+
     int _enemyBlood;
     int _enemyAttack;
     int _enemyShieldCnt;
@@ -60,8 +68,21 @@ protected:
     void newFriend();
     void newEnemy();
     BeatNode genRandomNode();
+    void checkBeats();
+    void initTouchThings();
+
+    constexpr static const float enemy_hit_line = 0.9; //uniform
+    constexpr static const float friend_start_line = 0.05;
+    constexpr static const float friend_end_line = 0.2;
+    constexpr static const float friend_hit_line = 0.0;
+
 
     std::list<BeatNode> _runningBeats;
+    void tryHitBeat(cocos2d::Vec2 cursor);
+    bool dealHitBeat(BeatNode* node);
+    bool dealFriendHit(BeatNode* node);
+    bool dealEnemyHit(BeatNode* node);
+    void toast(bool isfriend, std::string text);
 
     void update(float dt) override;
 };
