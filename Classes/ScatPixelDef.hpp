@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include "cocos2d.h"
+
 struct PixelPos
 {
     int x, y;

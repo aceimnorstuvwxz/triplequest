@@ -3,6 +3,7 @@
 #define ScatPixelScene_hpp
 
 #include "TRBaseScene.h"
+#include "SimplePixelNode.h"
 
 // Scat Pixel Graphic Experiment
 
@@ -17,6 +18,8 @@ protected:
 
     cocos2d::Layer* _mainLayer;
     cocos2d::Camera* _mainCamera;
+
+    SimplePixelNode* _simplePixelNode;
     void initMainLayer();
 };
 
