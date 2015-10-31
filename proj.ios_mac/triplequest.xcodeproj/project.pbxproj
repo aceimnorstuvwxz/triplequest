@@ -66,6 +66,7 @@
 		B56414DF1BE359FD005FDFB4 /* BeatDef.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B56414DD1BE359FD005FDFB4 /* BeatDef.cpp */; };
 		B56414E11BE377DC005FDFB4 /* sounds in Resources */ = {isa = PBXBuildFile; fileRef = B56414E01BE377DC005FDFB4 /* sounds */; };
 		B58F488D1BE49E0E008E2658 /* ScatPixelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B58F488B1BE49E0E008E2658 /* ScatPixelScene.cpp */; };
+		B58F48901BE4A2D3008E2658 /* 3d in Resources */ = {isa = PBXBuildFile; fileRef = B58F488F1BE4A2D3008E2658 /* 3d */; };
 		B5C96FC31BE23DEA00CCCCA2 /* McdLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5C96FBF1BE23DEA00CCCCA2 /* McdLayer.cpp */; };
 		B5C96FC41BE23DEA00CCCCA2 /* TRBaseScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5C96FC11BE23DEA00CCCCA2 /* TRBaseScene.cpp */; };
 		B5C96FC81BE23E0D00CCCCA2 /* TripleQuestScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5C96FC61BE23E0D00CCCCA2 /* TripleQuestScene.cpp */; };
@@ -175,6 +176,7 @@
 		B56414E01BE377DC005FDFB4 /* sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sounds; sourceTree = "<group>"; };
 		B58F488B1BE49E0E008E2658 /* ScatPixelScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScatPixelScene.cpp; sourceTree = "<group>"; };
 		B58F488C1BE49E0E008E2658 /* ScatPixelScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScatPixelScene.h; sourceTree = "<group>"; };
+		B58F488F1BE4A2D3008E2658 /* 3d */ = {isa = PBXFileReference; lastKnownFileType = folder; path = 3d; sourceTree = "<group>"; };
 		B5C96FBF1BE23DEA00CCCCA2 /* McdLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = McdLayer.cpp; sourceTree = "<group>"; };
 		B5C96FC01BE23DEA00CCCCA2 /* McdLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = McdLayer.h; sourceTree = "<group>"; };
 		B5C96FC11BE23DEA00CCCCA2 /* TRBaseScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TRBaseScene.cpp; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B58F488F1BE4A2D3008E2658 /* 3d */,
 				B56414E01BE377DC005FDFB4 /* sounds */,
 				B5C96FC91BE23FC300CCCCA2 /* images */,
 				521A8EA819F11F5000D177D7 /* fonts */,
@@ -540,6 +543,7 @@
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
 				B56414E11BE377DC005FDFB4 /* sounds in Resources */,
 				46880B8119C43A67006E1F66 /* HelloWorld.png in Resources */,
+				B58F48901BE4A2D3008E2658 /* 3d in Resources */,
 				46880B7D19C43A67006E1F66 /* CloseSelected.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,

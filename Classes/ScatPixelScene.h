@@ -14,6 +14,10 @@ public:
     virtual bool init() override;
 
 protected:
+
+    cocos2d::Layer* _mainLayer;
+    cocos2d::Camera* _mainCamera;
+    void initMainLayer();
 };
 
 #endif /* ScatPixelScene_hpp */
