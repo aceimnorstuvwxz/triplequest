@@ -65,6 +65,7 @@
 		B56414DC1BE35785005FDFB4 /* BeatQuestScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B56414DA1BE35785005FDFB4 /* BeatQuestScene.cpp */; };
 		B56414DF1BE359FD005FDFB4 /* BeatDef.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B56414DD1BE359FD005FDFB4 /* BeatDef.cpp */; };
 		B56414E11BE377DC005FDFB4 /* sounds in Resources */ = {isa = PBXBuildFile; fileRef = B56414E01BE377DC005FDFB4 /* sounds */; };
+		B58F488D1BE49E0E008E2658 /* ScatPixelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B58F488B1BE49E0E008E2658 /* ScatPixelScene.cpp */; };
 		B5C96FC31BE23DEA00CCCCA2 /* McdLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5C96FBF1BE23DEA00CCCCA2 /* McdLayer.cpp */; };
 		B5C96FC41BE23DEA00CCCCA2 /* TRBaseScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5C96FC11BE23DEA00CCCCA2 /* TRBaseScene.cpp */; };
 		B5C96FC81BE23E0D00CCCCA2 /* TripleQuestScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5C96FC61BE23E0D00CCCCA2 /* TripleQuestScene.cpp */; };
@@ -172,6 +173,8 @@
 		B56414DD1BE359FD005FDFB4 /* BeatDef.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BeatDef.cpp; sourceTree = "<group>"; };
 		B56414DE1BE359FD005FDFB4 /* BeatDef.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BeatDef.hpp; sourceTree = "<group>"; };
 		B56414E01BE377DC005FDFB4 /* sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sounds; sourceTree = "<group>"; };
+		B58F488B1BE49E0E008E2658 /* ScatPixelScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScatPixelScene.cpp; sourceTree = "<group>"; };
+		B58F488C1BE49E0E008E2658 /* ScatPixelScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScatPixelScene.h; sourceTree = "<group>"; };
 		B5C96FBF1BE23DEA00CCCCA2 /* McdLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = McdLayer.cpp; sourceTree = "<group>"; };
 		B5C96FC01BE23DEA00CCCCA2 /* McdLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = McdLayer.h; sourceTree = "<group>"; };
 		B5C96FC11BE23DEA00CCCCA2 /* TRBaseScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TRBaseScene.cpp; sourceTree = "<group>"; };
@@ -324,6 +327,7 @@
 			children = (
 				B56414D61BE356B5005FDFB4 /* TestGuideScene.cpp */,
 				B56414D71BE356B5005FDFB4 /* TestGuideScene.h */,
+				B58F488A1BE48970008E2658 /* scat-pixel */,
 				B5C96FC51BE23DF100CCCCA2 /* fromold */,
 				B5C96FBE1BE23DB400CCCCA2 /* triple-quest */,
 				B56414D91BE35745005FDFB4 /* beat-quest */,
@@ -392,6 +396,15 @@
 				B56414DB1BE35785005FDFB4 /* BeatQuestScene.h */,
 			);
 			name = "beat-quest";
+			sourceTree = "<group>";
+		};
+		B58F488A1BE48970008E2658 /* scat-pixel */ = {
+			isa = PBXGroup;
+			children = (
+				B58F488B1BE49E0E008E2658 /* ScatPixelScene.cpp */,
+				B58F488C1BE49E0E008E2658 /* ScatPixelScene.h */,
+			);
+			name = "scat-pixel";
 			sourceTree = "<group>";
 		};
 		B5C96FBE1BE23DB400CCCCA2 /* triple-quest */ = {
@@ -572,6 +585,7 @@
 				B56414DF1BE359FD005FDFB4 /* BeatDef.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				B56414D51BE3555A005FDFB4 /* SOCommon.cpp in Sources */,
+				B58F488D1BE49E0E008E2658 /* ScatPixelScene.cpp in Sources */,
 				B5C96FC81BE23E0D00CCCCA2 /* TripleQuestScene.cpp in Sources */,
 				B5C96FCE1BE241BE00CCCCA2 /* TripleDef.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
