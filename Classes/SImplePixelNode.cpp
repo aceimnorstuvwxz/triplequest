@@ -100,9 +100,10 @@ void SimplePixelNode::onDraw(const cocos2d::Mat4 &transform, uint32_t flags)
 //    glEnable (GL_BLEND);
 //    glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glDisable(GL_BLEND);
+    glEnable(GL_CULL_FACE);
     // shadow cover打开depth test同时在fsh中对a为0的进行discard，以保证重合交叠处不会交叠而加深。
-    //    glEnable(GL_DEPTH_TEST);
-    //    glDepthMask(true);
+    glEnable(GL_DEPTH_TEST);
+    glDepthMask(true);
     glDrawArrays(GL_TRIANGLES, 0, _count);
 
 
@@ -114,6 +115,7 @@ void SimplePixelNode::onDraw(const cocos2d::Mat4 &transform, uint32_t flags)
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glDisable(GL_DEPTH_TEST);
     glDepthMask(false);
+    glEnable (GL_BLEND);
 
     CC_INCREMENT_GL_DRAWN_BATCHES_AND_VERTICES(1,_count);
     CHECK_GL_ERROR_DEBUG();
@@ -156,7 +158,7 @@ void SimplePixelNode::config(const std::vector<PixelUnit>& data)
         genface(4,0,3,7,pix.color, relativePos);
         genface(5,4,7,6,pix.color, relativePos);
         genface(1,5,6,2,pix.color, relativePos);
-        genface(5,4,1,0,pix.color, relativePos);
+        genface(4,5,1,0,pix.color, relativePos);
         genface(6,7,3,2,pix.color, relativePos);
     }
 }

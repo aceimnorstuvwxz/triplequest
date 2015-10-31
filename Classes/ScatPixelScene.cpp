@@ -25,7 +25,7 @@ void ScatPixelScene::initMainLayer()
     auto size = Director::getInstance()->getVisibleSize();
 
     auto camera = Camera::createPerspective(60, size.width/size.height, 0.1, 1000000);
-    camera->setPosition3D({0,-50,50});
+    camera->setPosition3D({0,0,50});
     camera->lookAt({0,0,0});
     camera->setCameraFlag(CameraFlag::USER1);
     layer->addChild(camera);
@@ -36,11 +36,11 @@ void ScatPixelScene::initMainLayer()
 
     //test 3d obj
 
-    auto sp = Sprite3D::create("3d/shieldx.c3b");
-    sp->setPosition3D({0,0,0});
-    _mainLayer->addChild(sp);
-    sp->setCameraMask(_mainCamera->getCameraMask());
-    sp->runAction(RepeatForever::create(RotateBy::create(10, {0,1000,0})));
+//    auto sp = Sprite3D::create("3d/shieldx.c3b");
+//    sp->setPosition3D({0,0,0});
+//    _mainLayer->addChild(sp);
+//    sp->setCameraMask(_mainCamera->getCameraMask());
+//    sp->runAction(RepeatForever::create(RotateBy::create(10, {0,1000,0})));
 
     // scatpixel test
     _simplePixelNode = SimplePixelNode::create();
@@ -48,5 +48,6 @@ void ScatPixelScene::initMainLayer()
     _simplePixelNode->setCameraMask(_mainCamera->getCameraMask());
     _mainLayer->addChild(_simplePixelNode);
     _simplePixelNode->config(loadScatPixelFile("images/scatpixel/a.png.sopx"));
+    _simplePixelNode->runAction(RepeatForever::create(RotateBy::create(100, {0,1000,0})));
 
 }
