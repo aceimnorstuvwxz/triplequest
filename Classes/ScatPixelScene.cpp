@@ -40,4 +40,6 @@ void ScatPixelScene::initMainLayer()
     sp->setPosition3D({0,0,0});
     _mainLayer->addChild(sp);
     sp->setCameraMask(_mainCamera->getCameraMask());
+    sp->runAction(RepeatForever::create(RotateBy::create(10, {0,1000,0})));
+
 }
