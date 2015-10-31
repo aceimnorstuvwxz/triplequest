@@ -32,7 +32,7 @@ protected:
     void prepareShaders(); //初始化shader program
     cocos2d::GLProgramState* _programState = nullptr;//共享的PROGRAM
     cocos2d::CustomCommand _command;
-    constexpr static int NUM_MAX_VERTEXS = 10000;
+    constexpr static int NUM_MAX_VERTEXS = 100000;
     SimplePixelVertexPormat _vertexData[NUM_MAX_VERTEXS];
     int _count = 0;
     bool _dirty = false;
