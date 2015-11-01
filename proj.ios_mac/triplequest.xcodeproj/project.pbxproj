@@ -337,13 +337,13 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				B5BD192B1BE5FB780052ACDD /* stealth-beat */,
 				B56414D61BE356B5005FDFB4 /* TestGuideScene.cpp */,
 				B56414D71BE356B5005FDFB4 /* TestGuideScene.h */,
 				B5C96FC51BE23DF100CCCCA2 /* fromold */,
 				B58F488A1BE48970008E2658 /* scat-pixel */,
 				B5C96FBE1BE23DB400CCCCA2 /* triple-quest */,
 				B56414D91BE35745005FDFB4 /* beat-quest */,
+				B5BD192B1BE5FB780052ACDD /* stealth-beat */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
 				46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */,

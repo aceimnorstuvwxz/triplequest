@@ -28,7 +28,7 @@ void SimplePixelNode::prepareVertexData()
         GL::bindVAO(_vao);
         glGenBuffers(1, &_vbo);
         glBindBuffer(GL_ARRAY_BUFFER, _vbo);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(SimplePixelVertexPormat)*_count, _vertexData, GL_STREAM_DRAW);
+//        glBufferData(GL_ARRAY_BUFFER, sizeof(SimplePixelVertexPormat)*_count, _vertexData, GL_STREAM_DRAW);
         // position
         glEnableVertexAttribArray(0);
         glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(SimplePixelVertexPormat), (GLvoid *)offsetof(SimplePixelVertexPormat, position));
@@ -43,7 +43,7 @@ void SimplePixelNode::prepareVertexData()
     {
         glGenBuffers(1, &_vbo);
         glBindBuffer(GL_ARRAY_BUFFER, _vbo);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(SimplePixelVertexPormat)*_count, _vertexData, GL_STREAM_DRAW);
+//        glBufferData(GL_ARRAY_BUFFER, sizeof(SimplePixelVertexPormat)*_count, _vertexData, GL_STREAM_DRAW);
         glBindBuffer(GL_ARRAY_BUFFER, 0);
     }
 
@@ -85,10 +85,6 @@ void SimplePixelNode::onDraw(const cocos2d::Mat4 &transform, uint32_t flags)
     glProgram->setUniformsForBuiltins(transform);
 
     glBindBuffer(GL_ARRAY_BUFFER, _vbo);
-    if (_dirty) {
-        _dirty = false;
-        glBufferData(GL_ARRAY_BUFFER, sizeof(SimplePixelVertexPormat)*_count, _vertexData, GL_STREAM_DRAW);
-    }
     if (Configuration::getInstance()->supportsShareableVAO())
     {
         GL::bindVAO(_vao);
@@ -123,15 +119,16 @@ void SimplePixelNode::onDraw(const cocos2d::Mat4 &transform, uint32_t flags)
 
 void SimplePixelNode::config(const std::vector<PixelUnit>& data)
 {
-    _dirty = true;
     _count = 0;
+
+    auto _vertexData = (SimplePixelVertexPormat*)malloc(sizeof(SimplePixelVertexPormat)*36*data.size());
 
     // 8 point
     const float half_step = 0.5f;
 
     cocos2d::Vec3 cornors[8] = {{1,1,1}, {-1,1,1}, {-1,-1,1}, {1,-1,1}, {1,1,-1}, {-1,1,-1}, {-1,-1,-1}, {1,-1,-1}};
 
-    auto genface = [this, &cornors, half_step](int a, int b, int c, int d, Color3B color, cocos2d::Vec3 relativePos){
+    auto genface = [this, &cornors, half_step, &_vertexData](int a, int b, int c, int d, Color3B color, cocos2d::Vec3 relativePos){
         _vertexData[_count].position = cornors[a] * half_step + relativePos;
         _vertexData[_count++].color = {color.r/255.f, color.g/255.f, color.b/255.f};
         _vertexData[_count].position = cornors[b] * half_step + relativePos;
@@ -161,4 +158,10 @@ void SimplePixelNode::config(const std::vector<PixelUnit>& data)
         genface(4,5,1,0,pix.color, relativePos);
         genface(6,7,3,2,pix.color, relativePos);
     }
+
+    glBindBuffer(GL_ARRAY_BUFFER, _vbo);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(SimplePixelVertexPormat)*_count, _vertexData, GL_STREAM_DRAW);
+
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    free(_vertexData);
 }

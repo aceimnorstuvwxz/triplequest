@@ -24,7 +24,6 @@ bool TestGuideScene::init()
 
 
     addCommonBtn({0.5,0.2}, "Stealth", [](){
-
         Director::getInstance()->pushScene(StealthTestScene::create());
     });
 
