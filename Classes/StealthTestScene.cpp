@@ -11,7 +11,11 @@ bool StealthTestScene::init()
 {
     assert(TRBaseScene::init());
 
-    addCommonBtn({0.5,0.9}, "t", [this](){_simplePixelNode->_stencil = !_simplePixelNode->_stencil;});
+    addCommonBtn({0.5,0.9}, "On/Off", [this](){
+        _shield->_stencil = !_shield->_stencil;
+        _bg->_stenciled = !_bg->_stenciled;
+        _bg->setVisible(_bg->_stenciled);
+    });
 
     initMainLayer();
     return true;
@@ -25,7 +29,7 @@ void StealthTestScene::initMainLayer()
     auto size = Director::getInstance()->getVisibleSize();
 
     auto camera = Camera::createPerspective(60, size.width/size.height, 0.1, 1000000);
-    camera->setPosition3D({0,0,200});
+    camera->setPosition3D({0,-150,150});
     camera->lookAt({0,0,0});
     camera->setCameraFlag(CameraFlag::USER1);
     layer->addChild(camera);
@@ -34,43 +38,30 @@ void StealthTestScene::initMainLayer()
     _mainLayer = layer;
     _mainCamera = camera;
 
-    //test 3d obj
 
-//    auto sp = Sprite3D::create("3d/shieldx.c3b");
-//    sp->setPosition3D({0,0,0});
-//    _mainLayer->addChild(sp);
-//    sp->setCameraMask(_mainCamera->getCameraMask());
-//    sp->runAction(RepeatForever::create(RotateBy::create(10, {0,1000,0})));
+    // object stealth
+    _shield = SimplePixelNode::create();
+    _shield->setPosition3D({0,-50,5});
+    _shield->setCameraMask(_mainCamera->getCameraMask());
+    _mainLayer->addChild(_shield);
+    _shield->config(loadScatPixelFile("images/scatpixel/c.png.sopx"));
+    _shield->_stencil = true;
+    _shield->runAction(RepeatForever::create(Sequence::create(MoveBy::create(5, {0,100,0}),MoveBy::create(5, {0,-100,0}), NULL)));
 
-    // scatpixel test
+    // bg with offset
+    _bg = SimplePixelNode::create();
+    _bg->setPosition3D({0,0,5});
+    _bg->setCameraMask(_mainCamera->getCameraMask());
+    _mainLayer->addChild(_bg);
+    _bg->config(loadScatPixelFile("images/scatpixel/bg.png.sopx"));
+    _bg->_stenciled = true;
 
-
+    // real showed bg
     auto _bg2 = SimplePixelNode::create();
     _bg2->setPosition3D({0,0,0});
     _bg2->setCameraMask(_mainCamera->getCameraMask());
     _mainLayer->addChild(_bg2);
     _bg2->config(loadScatPixelFile("images/scatpixel/bg.png.sopx"));
-
-
-
-    _simplePixelNode = SimplePixelNode::create();
-    _simplePixelNode->setPosition3D({0,0,10});
-    _simplePixelNode->setCameraMask(_mainCamera->getCameraMask());
-    _mainLayer->addChild(_simplePixelNode);
-    _simplePixelNode->config(loadScatPixelFile("images/scatpixel/c.png.sopx"));
-    _simplePixelNode->_stencil = true;
-    _simplePixelNode->runAction(RepeatForever::create(Sequence::create(MoveBy::create(5, {0,50,0}),MoveBy::create(5, {0,-50,0}), NULL)));
-
-
-
-
-    _bg = SimplePixelNode::create();
-    _bg->setPosition3D({0,10,10});
-    _bg->setCameraMask(_mainCamera->getCameraMask());
-    _mainLayer->addChild(_bg);
-    _bg->config(loadScatPixelFile("images/scatpixel/bg.png.sopx"));
-    _bg->_stenciled = true;
-//    _bg->runAction(RepeatForever::create(RotateBy::create(100, {0,1000,0})));
 
 
 }

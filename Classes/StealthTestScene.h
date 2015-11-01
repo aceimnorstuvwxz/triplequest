@@ -19,7 +19,7 @@ protected:
     cocos2d::Layer* _mainLayer;
     cocos2d::Camera* _mainCamera;
 
-    SimplePixelNode* _simplePixelNode;
+    SimplePixelNode* _shield;
     SimplePixelNode* _bg;
 
     void initMainLayer();
