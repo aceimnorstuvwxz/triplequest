@@ -69,6 +69,7 @@
 		B58F48901BE4A2D3008E2658 /* 3d in Resources */ = {isa = PBXBuildFile; fileRef = B58F488F1BE4A2D3008E2658 /* 3d */; };
 		B58F48931BE4A55A008E2658 /* ScatPixelDef.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B58F48911BE4A55A008E2658 /* ScatPixelDef.cpp */; };
 		B58F48961BE4A840008E2658 /* SImplePixelNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B58F48941BE4A840008E2658 /* SImplePixelNode.cpp */; };
+		B5BD192E1BE5FC240052ACDD /* StealthTestScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5BD192C1BE5FC240052ACDD /* StealthTestScene.cpp */; };
 		B5C96FC31BE23DEA00CCCCA2 /* McdLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5C96FBF1BE23DEA00CCCCA2 /* McdLayer.cpp */; };
 		B5C96FC41BE23DEA00CCCCA2 /* TRBaseScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5C96FC11BE23DEA00CCCCA2 /* TRBaseScene.cpp */; };
 		B5C96FC81BE23E0D00CCCCA2 /* TripleQuestScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B5C96FC61BE23E0D00CCCCA2 /* TripleQuestScene.cpp */; };
@@ -183,6 +184,8 @@
 		B58F48921BE4A55A008E2658 /* ScatPixelDef.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ScatPixelDef.hpp; sourceTree = "<group>"; };
 		B58F48941BE4A840008E2658 /* SImplePixelNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SImplePixelNode.cpp; sourceTree = "<group>"; };
 		B58F48951BE4A840008E2658 /* SimplePixelNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimplePixelNode.h; sourceTree = "<group>"; };
+		B5BD192C1BE5FC240052ACDD /* StealthTestScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StealthTestScene.cpp; sourceTree = "<group>"; };
+		B5BD192D1BE5FC240052ACDD /* StealthTestScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StealthTestScene.h; sourceTree = "<group>"; };
 		B5C96FBF1BE23DEA00CCCCA2 /* McdLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = McdLayer.cpp; sourceTree = "<group>"; };
 		B5C96FC01BE23DEA00CCCCA2 /* McdLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = McdLayer.h; sourceTree = "<group>"; };
 		B5C96FC11BE23DEA00CCCCA2 /* TRBaseScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TRBaseScene.cpp; sourceTree = "<group>"; };
@@ -334,6 +337,7 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				B5BD192B1BE5FB780052ACDD /* stealth-beat */,
 				B56414D61BE356B5005FDFB4 /* TestGuideScene.cpp */,
 				B56414D71BE356B5005FDFB4 /* TestGuideScene.h */,
 				B5C96FC51BE23DF100CCCCA2 /* fromold */,
@@ -418,6 +422,15 @@
 				B58F488C1BE49E0E008E2658 /* ScatPixelScene.h */,
 			);
 			name = "scat-pixel";
+			sourceTree = "<group>";
+		};
+		B5BD192B1BE5FB780052ACDD /* stealth-beat */ = {
+			isa = PBXGroup;
+			children = (
+				B5BD192C1BE5FC240052ACDD /* StealthTestScene.cpp */,
+				B5BD192D1BE5FC240052ACDD /* StealthTestScene.h */,
+			);
+			name = "stealth-beat";
 			sourceTree = "<group>";
 		};
 		B5C96FBE1BE23DB400CCCCA2 /* triple-quest */ = {
@@ -597,6 +610,7 @@
 			files = (
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				B56414DF1BE359FD005FDFB4 /* BeatDef.cpp in Sources */,
+				B5BD192E1BE5FC240052ACDD /* StealthTestScene.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				B56414D51BE3555A005FDFB4 /* SOCommon.cpp in Sources */,
 				B58F488D1BE49E0E008E2658 /* ScatPixelScene.cpp in Sources */,

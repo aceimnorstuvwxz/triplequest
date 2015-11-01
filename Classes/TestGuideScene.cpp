@@ -4,6 +4,7 @@
 #include "TripleQuestScene.h"
 #include "BeatQuestScene.h"
 #include "ScatPixelScene.h"
+#include "StealthTestScene.h"
 
 USING_NS_CC;
 
@@ -21,6 +22,11 @@ bool TestGuideScene::init()
         Director::getInstance()->pushScene(BeatQuestScene::create());
     });
 
+
+    addCommonBtn({0.5,0.2}, "Stealth", [](){
+
+        Director::getInstance()->pushScene(StealthTestScene::create());
+    });
 
     addCommonBtn({0.5,0.1}, "Scat Pixel 3D", [](){
 
