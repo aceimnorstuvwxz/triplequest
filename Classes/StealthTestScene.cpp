@@ -11,7 +11,7 @@ bool StealthTestScene::init()
 {
     assert(TRBaseScene::init());
 
-    addCommonBtn({0.5,0.9}, "t", [](){});
+    addCommonBtn({0.5,0.9}, "t", [this](){_simplePixelNode->_stencil = !_simplePixelNode->_stencil;});
 
     initMainLayer();
     return true;
@@ -25,7 +25,7 @@ void StealthTestScene::initMainLayer()
     auto size = Director::getInstance()->getVisibleSize();
 
     auto camera = Camera::createPerspective(60, size.width/size.height, 0.1, 1000000);
-    camera->setPosition3D({0,-200,200});
+    camera->setPosition3D({0,0,200});
     camera->lookAt({0,0,0});
     camera->setCameraFlag(CameraFlag::USER1);
     layer->addChild(camera);
@@ -44,19 +44,33 @@ void StealthTestScene::initMainLayer()
 
     // scatpixel test
 
+
+    auto _bg2 = SimplePixelNode::create();
+    _bg2->setPosition3D({0,0,0});
+    _bg2->setCameraMask(_mainCamera->getCameraMask());
+    _mainLayer->addChild(_bg2);
+    _bg2->config(loadScatPixelFile("images/scatpixel/bg.png.sopx"));
+
+
+
     _simplePixelNode = SimplePixelNode::create();
-    _simplePixelNode->setPosition3D({0,0,0});
+    _simplePixelNode->setPosition3D({0,0,10});
     _simplePixelNode->setCameraMask(_mainCamera->getCameraMask());
     _mainLayer->addChild(_simplePixelNode);
     _simplePixelNode->config(loadScatPixelFile("images/scatpixel/c.png.sopx"));
-    _simplePixelNode->runAction(RepeatForever::create(RotateBy::create(100, {0,1000,0})));
+    _simplePixelNode->_stencil = true;
+    _simplePixelNode->runAction(RepeatForever::create(Sequence::create(MoveBy::create(5, {0,50,0}),MoveBy::create(5, {0,-50,0}), NULL)));
+
+
 
 
     _bg = SimplePixelNode::create();
-    _bg->setPosition3D({0,0,0});
+    _bg->setPosition3D({0,10,10});
     _bg->setCameraMask(_mainCamera->getCameraMask());
     _mainLayer->addChild(_bg);
     _bg->config(loadScatPixelFile("images/scatpixel/bg.png.sopx"));
+    _bg->_stenciled = true;
 //    _bg->runAction(RepeatForever::create(RotateBy::create(100, {0,1000,0})));
+
 
 }

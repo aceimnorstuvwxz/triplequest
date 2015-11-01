@@ -22,6 +22,8 @@ public:
     void draw(cocos2d::Renderer *renderer, const cocos2d::Mat4 &transform, uint32_t flags)override;
 
     void config(const std::vector<PixelUnit>& data);
+    bool _stencil = false;
+    bool _stenciled = false;
 
 protected:
     // TODO 共享
